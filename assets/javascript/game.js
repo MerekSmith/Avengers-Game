@@ -115,7 +115,7 @@ $(document).ready(function() {
   restart();
 
   // User selects a Hero, then it is given choosen class and is moved to 'your character' space.
-  $("container").on("click", ".availableHeroes", function() {
+  $(".container").on("click", ".availableHeroes", function() {
     console.log("Available Hero has been clicked", this);
     if (!heroChosen) {
       heroChosen = true;
@@ -138,7 +138,7 @@ $(document).ready(function() {
 
 
   // User now selects an Enemy from the EnemyLineup or class of availableEnemies.
-  $("container").on("click", ".availableEnemies", function() {
+  $(".container").on("click", ".availableEnemies", function() {
     if (!enemyChosen) {
       enemyChosen = true;
       readyToAttack = true;
@@ -153,7 +153,9 @@ $(document).ready(function() {
         $(".heroVsDefender").append(
           '<div class="col-md-2 attackButtonDiv"><button class="btn btn-danger attackButton">Attack</button></div>'
         );
-        $(".attackButtonDiv").append('<div class="attackStats"></div>');
+				$(".attackButtonDiv").append('<div class="attackStats"></div>');
+				$(".mainHeader").attr('class', 'col-md-8 mainHeader');
+				
       }
       // Choosen defender is moved to defender location.
 			$(".heroVsDefender").append(this);
@@ -180,7 +182,7 @@ $(document).ready(function() {
 				heroInfo = selectedHeros[heroKey];
       	defenderInfo = selectedHeros[defenderKey];
 
-				$(".ironMan > img").attr("src", "assets/images/hulkbuster.png");
+				$(".ironMan > img").attr("src", "assets/images/Hulkbuster.png");
 				$(".ironMan > div.heroNameDisplay > h4").text("Hulkbuster");
 				$(".ironMan > div.hpDisplay > h4").text(selectedHeros[ironManKey].hp);
 				$(".attackStats").html(
@@ -196,7 +198,7 @@ $(document).ready(function() {
 
   // click event for attack button.
   // function attack() {
-  $("container").on("click", ".attackButton", function() {
+  $(".container").on("click", ".attackButton", function() {
     console.log("you clicked the attack button");
     if (readyToAttack) {
       
@@ -266,7 +268,7 @@ $(document).ready(function() {
   // Calls attack button on click function
 
   // Listener for restart button to reset game, if game is won or lost.
-  $("container").on("click", ".restart", function() {
+  $(".container").on("click", ".restart", function() {
     restart();
   });
 
